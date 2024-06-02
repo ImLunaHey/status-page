@@ -15,7 +15,7 @@ type MonitorCardProps = {
     url: string;
     linkable?: boolean;
   };
-  data: KVMonitor;
+  data?: KVMonitor;
 };
 
 export const MonitorCard = ({ monitor, data }: MonitorCardProps) => {

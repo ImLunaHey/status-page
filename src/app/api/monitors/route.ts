@@ -1,4 +1,5 @@
 import { getKVMonitors } from '@/common/get-kv-monitors';
+import { locations } from '@/locations';
 
 export type KVMonitor = {
   firstCheck: string;
@@ -11,7 +12,7 @@ export type KVMonitor = {
     [key: string]: {
       fails: number;
       res: {
-        [x: string]: {
+        [K in keyof typeof locations]: {
           n: number;
           ms: number;
           a: number;

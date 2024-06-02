@@ -4,7 +4,7 @@ import { Pill } from './pill';
 import { KVMonitor } from '@/app/api/monitors/route';
 
 type MonitorStatusLabelProps = {
-  kvMonitor: KVMonitor;
+  kvMonitor?: KVMonitor;
 };
 
 export const MonitorStatusLabel = ({ kvMonitor }: MonitorStatusLabelProps) => {

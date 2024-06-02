@@ -33,10 +33,6 @@ export default function Home() {
     );
   }
 
-  if (!data) {
-    return <div>Failed to load data</div>;
-  }
-
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4">

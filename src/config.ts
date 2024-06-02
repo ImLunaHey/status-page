@@ -1,4 +1,4 @@
-import { name, version } from '@/../package.json';
+import pkg from '@/../package.json';
 
 type Settings = {
   title: string;
@@ -59,7 +59,7 @@ export const config = {
     /**
      * User agent to use when fetching monitor URLs
      */
-    userAgent: `${name}@${version}`,
+    userAgent: `${pkg.name}@${pkg.version}`,
   },
   monitors: [
     {

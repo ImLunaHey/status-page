@@ -7,7 +7,7 @@ import { TooltipContent } from './tooltip-content';
 
 type MonitorHistogramProps = {
   monitorId: string;
-  kvMonitor: KVMonitor;
+  kvMonitor?: KVMonitor;
 };
 
 export const MonitorHistogram = ({ monitorId, kvMonitor }: MonitorHistogramProps) => {
