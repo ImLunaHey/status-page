@@ -1,3 +1,5 @@
+import { name, version } from '@/../package.json';
+
 type Settings = {
   title: string;
   description: string;
@@ -57,7 +59,7 @@ export const config = {
     /**
      * User agent to use when fetching monitor URLs
      */
-    userAgent: 'cf-worker-status-page',
+    userAgent: `${name}@${version}`,
   },
   monitors: [
     {

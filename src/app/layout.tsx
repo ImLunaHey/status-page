@@ -4,7 +4,6 @@ import './globals.css';
 import { cn } from '@/cn';
 import { config } from '@/config';
 import Providers from './providers';
-import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
