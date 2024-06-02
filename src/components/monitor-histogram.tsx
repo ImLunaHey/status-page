@@ -3,6 +3,7 @@ import { MonitorDayAverage } from './monitor-day-average';
 import { Bar } from './bar';
 import { KVMonitor } from '@/app/api/monitors/route';
 import { keysFromObject } from '@/common/keys-from-object';
+import { TooltipContent } from './tooltip-content';
 
 type MonitorHistogramProps = {
   monitorId: string;
@@ -35,9 +36,9 @@ export const MonitorHistogram = ({ monitorId, kvMonitor }: MonitorHistogramProps
         }
 
         return (
-          <div key={key} className="hitbox tooltip">
+          <div key={key} className="group items-end box-border h-full w-full p-[1px] rounded">
             <Bar state={state} />
-            <div className="content text-center py-1 px-2 mt-2 left-1/2 -ml-20 w-40 text-xs">
+            <TooltipContent className="text-center py-1 px-2 mt-2 left-1/2 -ml-20 w-40 text-xs">
               {dayInHistogram}
               <br />
               <span className="font-semibold text-sm">{dayInHistogramLabel}</span>
@@ -46,7 +47,7 @@ export const MonitorHistogram = ({ monitorId, kvMonitor }: MonitorHistogramProps
                 keysFromObject(kvMonitor.checks[dayInHistogram].res).map((key) => {
                   return <MonitorDayAverage key={key} location={key} avg={kvMonitor.checks[dayInHistogram].res[key].a} />;
                 })}
-            </div>
+            </TooltipContent>
           </div>
         );
       })}

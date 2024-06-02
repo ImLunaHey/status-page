@@ -4,6 +4,7 @@ import { MonitorStatusLabel } from './monitor-status-label';
 import { MonitorHistogram } from './monitor-histogram';
 import { Card } from './card';
 import { KVMonitor } from '@/app/api/monitors/route';
+import { TooltipContent } from './tooltip-content';
 
 type MonitorCardProps = {
   key: number;
@@ -23,9 +24,9 @@ export const MonitorCard = ({ monitor, data }: MonitorCardProps) => {
       <div className="flex flex-row justify-between items-center mb-2">
         <div className="flex flex-row items-center align-center">
           {monitor.description && (
-            <div className="tooltip">
+            <div className="group">
               <InfoIcon />
-              <div className="content text-center transform w-72 text-sm">{monitor.description}</div>
+              <TooltipContent className="text-center transform w-72 text-sm">{monitor.description}</TooltipContent>
             </div>
           )}
           {monitor.linkable === true || monitor.linkable === undefined ? (

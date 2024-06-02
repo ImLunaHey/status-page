@@ -1,24 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer components {
-  .hitbox {
-    align-items: flex-end;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    padding: 1px;
-    border-radius: 3.75px;
-  }
-
-  .tooltip .content {
-    @apply invisible absolute z-50 inline-block;
-    @apply rounded-lg py-1 px-2 bg-gray-100 dark:bg-gray-800 shadow;
-    @apply opacity-0 transition-all duration-200 scale-50;
-  }
-
-  .tooltip:hover .content {
-    @apply visible opacity-100 scale-100;
-  }
-}
