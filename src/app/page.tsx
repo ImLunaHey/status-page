@@ -18,7 +18,7 @@ export default function Home() {
     return monitor.name.toLowerCase().includes(filter);
   });
   const { data, isLoading } = useQuery({
-    queryKey: ['monitors', filter],
+    queryKey: ['monitors'],
     queryFn: async () => {
       const response = await fetch('/api/monitors');
       return response.json() as Promise<KVMonitors>;
@@ -43,11 +43,7 @@ export default function Home() {
           </div>
           <div className="flex flex-row items-center">
             <ThemeSwitcher />
-            <MonitorFilter
-              callback={(value) => {
-                setFilter(value);
-              }}
-            />
+            <MonitorFilter input={filter} setInput={setFilter} />
           </div>
         </div>
         <MonitorStatusHeader lastUpdate={data?.lastUpdate} />

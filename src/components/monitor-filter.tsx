@@ -1,14 +1,22 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { SearchIcon } from './icons/search';
 import { useKeyPress } from '@/hooks/use-key-press';
 
-type MonitorFilterProps = {
-  callback: (value: string) => void;
+const debounce = (fn: Function, delay: number) => {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return (...args: any) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), delay);
+  };
 };
 
-export const MonitorFilter = ({ callback }: MonitorFilterProps) => {
-  const [input, setInput] = useState('');
+type MonitorFilterProps = {
+  input: string;
+  setInput: (value: string) => void;
+};
+
+export const MonitorFilter = ({ input, setInput }: MonitorFilterProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Focus input on '/' key press
@@ -20,7 +28,6 @@ export const MonitorFilter = ({ callback }: MonitorFilterProps) => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value === '/') return;
     setInput(event.target.value);
-    callback(event.target.value);
   };
 
   // Handle 'Escape' key press
