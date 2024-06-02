@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           <div>
             <Link
-              href="https://github.com/eidam/cf-workers-status-page"
+              href="https://github.com/imlunahey/status-page"
               target="_blank"
               className="text-blue-500 dark:text-blue-300 hover:underline"
             >
