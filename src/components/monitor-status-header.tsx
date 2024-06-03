@@ -4,6 +4,7 @@ import { config } from '@/config';
 import { locations } from '@/locations';
 import { Card } from './card';
 import { KVMonitors } from '@/common/get-kv-monitors';
+import { TimeAgo } from './time-ago';
 
 type MonitorStatusHeaderProps = {
   lastUpdate?: KVMonitors['lastUpdate'];
@@ -28,7 +29,7 @@ export const MonitorStatusHeader = ({ lastUpdate }: MonitorStatusHeaderProps) =>
         <div>{text}</div>
         {lastUpdate?.time && (
           <div className="text-xs font-light">
-            checked {Math.round((Date.now() - lastUpdate.time) / 1_000)} sec ago (from{' '}
+            checked <TimeAgo date={lastUpdate.time} /> (from{' '}
             {(lastUpdate.loc && locations[lastUpdate.loc]) || lastUpdate.loc})
           </div>
         )}
